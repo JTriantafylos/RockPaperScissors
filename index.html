@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="Rock, paper, scissors game">
+		<meta name="keywords" content="Game, Rock, Paper, Scissors, Rock Paper Scissors">
+		<meta name="designer" content="James Triantafylos">
+
+		<title>Rock, Paper, Scissors</title>
+
+		<link rel="stylesheet" href="css/browser_reset.css" type="text/css" />
+
+		<link href="https://fonts.googleapis.com/css?family=Macondo" rel="stylesheet">
+
+		<link rel="stylesheet" href="css/main.css" type="text/css" />
+
+		<script src="js/game.js"></script>
+	</head>
+
+	<body>
+
+		<div class="ridgeBorder" id="infoPane">
+			<img class="buttonNoStyle" onClick="location.reload()" src="images/refreshIcon.png" alt="Reload Button" width="40px" height="40px";>
+
+			<h1 id="infoPaneHeader">Rules</h1>
+
+			<div id="infoPaneText">
+				<p>You will play Rock, Paper, Scissors against 5 different opponents.</p>
+				<p class="darkText">To win the game you must defeat all 5 opponents before the computer reaches a score of 5.</p>
+				<p>To beat an opponent and move up a level you must reduce their health to 0.</p>
+				<p class="darkText">For an opponent to beat you and gain 1 score they must reduce your health to 0.</p>
+				<p>As you beat opponents they will become better at correctly predicting what you are going to choose.</p>
+				<p class="darkText">Opponent 1 will not have a chance at correctly predicting your choice. <br> Opponent 2 will have a 5% chance. <br> Opponent 3 will have a 10% chance. <br> Opponent 4 will have a 15% chance. <br> Finally, Opponent 5 will have a 25% chance.</p>
+				<p>When a round is won a random amount of damage, between 1 and 5, will be done to the loser of the round.</p>
+				<p class="darkText">Once the game is over or you would like to restart, click the restart button in the top-left of the screen.</p>
+			</div>
+		</div>
+		<div id="gamePane">
+			<div id="gamePaneLeft">
+				<div class="ridgeBorder tanBackground" id="opponentInfo1">
+					<img class="ridgeBorder" id="opponentImage" src="images/enemy_1/idle/frame-1.png" width="100px" alt="Opponent Profile Image">
+					<div class="opponentText">
+						<h3>Opponent</h3>
+						<h4>Name: Armos</h4>
+						<h4>Level: 1</h4>
+					</div>
+				</div>
+
+				<div class="ridgeBorder tanBackground" id="opponentInfo2">
+					<img class="ridgeBorder" id="opponentImage" src="images/enemy_2/idle/frame-1.png" width="100px" alt="Opponent Profile Image">
+					<div class="opponentText">
+						<h3>Opponent</h3>
+						<h4>Name: Leever</h4>
+						<h4>Level: 2</h4>
+					</div>
+				</div>
+
+				<div class="ridgeBorder tanBackground" id="opponentInfo3">
+					<img class="ridgeBorder" id="opponentImage" src="images/enemy_3/idle/frame-1.png" width="100px" alt="Opponent Profile Image">
+					<div class="opponentText">
+						<h3>Opponent</h3>
+						<h4>Name: Lanmola</h4>
+						<h4>Level: 3</h4>
+					</div>
+				</div>
+
+				<div class="ridgeBorder tanBackground" id="opponentInfo4">
+					<img class="ridgeBorder" id="opponentImage" src="images/enemy_4/idle/frame-1.png" width="100px" alt="Opponent Profile Image">
+					<div class="opponentText">
+						<h3>Opponent</h3>
+						<h4>Name: Moblin</h4>
+						<h4>Level: 4</h4>
+					</div>
+				</div>
+
+				<div class="ridgeBorder tanBackground" id="opponentInfo5">
+					<img class="ridgeBorder" id="opponentImage" src="images/enemy_5/idle/frame-1.png" width="100px" alt="Opponent Profile Image">
+					<div class="opponentText">
+						<h3>Opponent</h3>
+						<h4>Name: Zol</h4>
+						<h4>Level: 5</h4>
+					</div>
+				</div>
+
+				<h1 class="deadCenter" id="titleText">Rock, Paper, Scissors</h1>
+
+				<h2 onClick="gameInit();" class="deadCenter button" id="playGameButton">Play Game!</h2>
+
+				<h1 class="deadCenter" id="loseMessage" >You Lost!</h1>
+				<h1 class="deadCenter" id="tieMessage" >You Tied!</h1>
+				<h1 class="deadCenter" id="winMessage" >You Won!</h1>
+
+				<div id="nameEntry">
+					<h3 class="topFifth" id="enterNameText">Please enter your name:</h3>
+					<input type="text" class="topFifth ridgeBorder" id="nameTextbox" value="Player" maxlength="18" />
+
+					<h2 onClick="gameStart();" class="topFifth button" id="nameAcceptButton">Ready!</h2>
+				</div>
+
+				<div class="topFifth" id="playerHealth">
+					<h4 id="playerHealthTextTop">25</h4>
+					<h3 id="playerHealthTextNotif">-1</h3>
+					<h4 id="playerHealthTextBottom">0</h4>
+					<div class="deadCenter ridgeBorder tanBackground" id="playerHealthBar">
+						<div id="playerHealthValue"></div>
+					</div>
+				</div>
+
+				<div class="bottomFifth" id="compHealth">
+					<h4 id="compHealthTextTop">25</h4>
+					<h3 id="compHealthTextNotif">-1</h3>
+					<h4 id="compHealthTextBottom">0</h4>
+					<div class="deadCenter ridgeBorder tanBackground" id="compHealthBar">
+						<div id="compHealthValue"></div>
+					</div>
+				</div>
+
+				<h3 class="deadCenter" id="choiceText">Choose an option:</h3>
+				<h2 onClick="rockChoice()" class="button deadCenter" id="rockButton">Rock</h2>
+				<h2 onClick="paperChoice()" class="button deadCenter" id="paperButton">Paper</h2>
+				<h2 onClick="scissorsChoice()" class="button deadCenter" id="scissorsButton">Scissors</h2>
+
+
+			</div>
+
+				<div id="gamePaneRight">
+					<div class="topFifth" id="playerInfoDisplay">
+						<h4 class="button" id="playerNameDisplay">Player</h4>
+						<h4 class="button" id="playerScoreDisplay">Score: 0</h4>
+					</div>
+
+					<div class="topFifth ridgeBorder" id="playerChoice">
+						<h1 class="deadCenter" id="playerChoiceEmpty">?</h1>
+						<img id="playerChoiceImage" src="images/rockSymbol.jpg" alt="Player Rock Symbol" width="250px;">
+					</div>
+
+					<h1 class="deadCenter">VS</h1>
+
+					<div class="bottomFifth ridgeBorder" id="compChoice">
+						<h1 class="deadCenter" id="compChoiceEmpty">?</h1>
+						<img id="compChoiceImage" src="images/rockSymbol.jpg" alt="Computer Rock Symbol" width="250px;">
+					</div>
+
+					<div class="bottomFifth" id="computerInfoDisplay">
+						<h4 class="button" id="computerNameDisplay">Computer</h4>
+						<h4 class="button" id="computerScoreDisplay">Score: 0</h4>
+					</div>
+				</div>
+		</div>
+
+
+
+	</body>
+
+</html>

@@ -1,0 +1,330 @@
+/* Tan Color: #EFE6DF */
+/* Dark Brown: #70443a */
+
+/* Sets the width and height of the entire body of the page to be the full size of the screen */
+html, body
+{
+    height:100%;
+    width:100%;
+}
+
+body {
+	background-image: url(../images/paperBG.jpg);
+	font-family: 'Macondo', sans-serif;
+}
+
+h1 {
+	font-size: 64px;
+	text-align: center;
+}
+
+h2 {
+	font-size: 48px;
+	text-align: center;
+}
+
+h3 {
+	font-size: 36px;
+	text-align: center;
+}
+
+h4 {
+	font-size: 24px;
+	text-align: center;
+}
+
+.buttonNoStyle {
+	cursor: pointer;
+}
+
+.button {
+	padding: 1.5%;
+
+	border: 6px ridge #EFE6DF;
+	background-color: #EFE6DF;
+	cursor: pointer;
+}
+
+.deadCenter {
+	/* Taken from https://www.w3schools.com/css/css_align.asp */
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.topFifth {
+	/* Taken from https://www.w3schools.com/css/css_align.asp */
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.bottomFifth {
+	/* Taken from https://www.w3schools.com/css/css_align.asp */
+	position: absolute;
+	top: 80%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.ridgeBorder {
+	border: 6px ridge #EFE6DF;
+}
+
+.tanBackground {
+	background-color: #EFE6DF;
+}
+
+.opponentText {
+	line-height: 250%;
+	padding: 5px;
+	float: right;
+}
+
+.darkText {
+	color: #472b25;
+}
+
+#infoPane {
+	width: 25%;
+	height: 100%;
+	padding: 1%;
+	float: left;
+
+	color: #EFE6DF;
+
+	background-image: url(../images/woodTexture.jpg);
+
+	/* Taken from https://www.w3schools.com/cssref/css3_pr_box-shadow.asp */
+	box-shadow: 10px 5px 5px #888888;
+
+	/* Taken from https://www.w3schools.com/cssref/css3_pr_box-sizing.asp | Includes the border and padding within div dimensions */
+	box-sizing: border-box;
+}
+
+#gamePane {
+	width: 75%;
+	height: 100%;
+	float: right;
+
+	padding: 3%;
+
+	/* Taken from https://www.w3schools.com/cssref/css3_pr_box-sizing.asp | Includes the border and padding within div dimensions */
+	box-sizing: border-box;
+}
+
+
+#gamePaneRight {
+	position: relative;
+	width: 30%;
+	height: 100%;
+	float: right;
+}
+
+#gamePaneLeft {
+	position: relative;
+	width: 70%;
+	height: 100%;
+	float: left;
+}
+
+#titleText {
+	top: 25%;
+}
+
+#playerInfoDisplay {
+	width: 250px;
+	top: 1%;
+	visibility: hidden;
+}
+
+#playerNameDisplay {
+	float: left;
+	cursor: default;
+}
+
+#playerScoreDisplay {
+	float: right;
+	cursor: default;
+}
+
+#computerInfoDisplay {
+	width: 250px;
+	top: 99%;
+	visibility: hidden;
+}
+
+#computerNameDisplay {
+	float: left;
+	cursor: default;
+}
+
+#computerScoreDisplay {
+	float: right;
+	cursor: default;
+}
+
+#playerChoice {
+	top: 25%;
+	width: 250px;
+	height: 276px;
+
+	border: 6px ridge #EFE6DF;
+}
+
+#playerChoiceImage {
+	visibility: hidden;
+}
+
+#playerChoiceEmpty, #compChoiceEmpty {
+	font-size: 144px;
+}
+
+#compChoice {
+	top: 75%;
+	width: 250px;
+	height: 276px;
+
+	border: 6px ridge #EFE6DF;
+}
+
+#compChoiceImage {
+	visibility: hidden;
+}
+
+#nameEntry {
+	visibility: hidden;
+}
+
+#nameTextbox {
+	top: 27.5%;
+	width: 35%;
+	height: 6%;
+	padding: 5px;
+
+	font-family: 'Macondo', sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+
+	/* Taken from https://www.w3schools.com/cssref/css3_pr_box-sizing.asp | Includes the border and padding within div dimensions */
+	box-sizing: border-box;
+}
+
+#nameAcceptButton {
+	top: 40%;
+}
+
+#opponentInfo1, #opponentInfo2, #opponentInfo3, #opponentInfo4, #opponentInfo5 {
+	width: 300px;
+	position: absolute;
+	padding: 5px;
+	visibility: hidden;
+}
+
+#opponentImage {
+	padding: 5px;
+}
+
+#playerHealth {
+	height: 250px;
+	width: 100px;
+	top: 25%;
+	left: 95%;
+
+	visibility: hidden;
+}
+
+#playerHealthBar, #compHealthBar {
+	height: 250px;
+	width: 15px;
+	float: right;
+}
+
+#playerHealthTextTop, #compHealthTextTop {
+	position: absolute;
+	top: -5%;
+	float: left;
+	text-align: center;
+}
+
+#playerHealthTextNotif, #compHealthTextNotif {
+	position: absolute;
+	top: 45%;
+	float: left;
+	text-align: center;
+	color: #e84040;
+
+	visibility: hidden;
+}
+
+#playerHealthTextBottom, #compHealthTextBottom {
+	position: absolute;
+	top: 97.5%;
+	left: 10%;
+	float: left;
+	text-align: center;
+}
+
+#playerHealthValue, #compHealthValue {
+	width: 100%;
+	height: 250px;
+	position: absolute;
+	bottom: 0px;
+
+	background-color: #e84040;
+}
+
+#compHealth {
+	height: 250px;
+	width: 100px;
+	top: 75%;
+	left: 95%;
+
+	visibility: hidden;
+}
+
+#choiceText {
+	top: 32.5%;
+	left: 25%;
+
+	visibility: hidden;
+}
+
+#rockButton {
+	top: 45%;
+	left: 25%;
+
+	visibility: hidden;
+}
+
+#paperButton {
+	top: 60%;
+	left: 25%;
+
+	visibility: hidden;
+}
+
+#scissorsButton {
+	top: 75%;
+	left: 25%;
+
+	visibility: hidden;
+}
+
+#loseMessage, #tieMessage, #winMessage {
+	visibility: hidden;
+}
+
+#infoPaneHeader {
+	margin-bottom: 20px;
+}
+
+#infoPaneText {
+	font-size: 18px;
+	line-height: 130%;
+
+	/* Simulated text stroke */
+	text-shadow: -1px 0 #000000, 0 1px #000000, 1px 0 #000000, 0 -1px #000000;
+}
